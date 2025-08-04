@@ -8,9 +8,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     KeyCode jumpKeyCode = KeyCode.C;
     MovementRigidbody2D movement;
+    PlayerAnimator playerAnimator;
     void Awake()
     {
         movement = GetComponent<MovementRigidbody2D>();
+        playerAnimator = GetComponentInChildren<PlayerAnimator>();
     }
 
 
@@ -23,6 +25,7 @@ public class PlayerController : MonoBehaviour
 
         UpdateMove(x);
         UpdateJump();
+        playerAnimator.UpdateAnimation(x);
     }
 
     private void UpdateJump()

@@ -29,14 +29,19 @@ public class MovementRigidbody2D : MonoBehaviour
     float jumpBufferTime = 0.1f;
     float jumpBufferCounter;
 
+    float hangTime = 0.2f;
+    float hangCounter;
+
     Vector2 collisionSize;
     Vector2 footPostion;
 
     Rigidbody2D rigid2D;
     Collider2D collider2D;
 
+    public Vector3 Velocity => rigid2D.velocity;
+
     public bool IsLongJump { get; set; } = false;
-    public bool IsGrounded { get; set; } = false;
+    public bool IsGrounded {  get; private set; } = false;
 
     private void Awake()
     {
@@ -57,8 +62,6 @@ public class MovementRigidbody2D : MonoBehaviour
         JumpHeight();
         JumpAdditive();
     }
-
-    
 
     public void MoveTo(float x)
     {
@@ -96,16 +99,23 @@ public class MovementRigidbody2D : MonoBehaviour
             rigid2D.velocity = new Vector2(rigid2D.velocity.x, jumpForce);
         }
         */
-        jumpBufferCounter = jumpBufferTime;
+
+        if(IsGrounded == true) jumpBufferCounter = jumpBufferTime;
     }
     private void JumpAdditive()
     {
+        if (IsGrounded) hangCounter = hangTime;
+        else            hangCounter -= Time.deltaTime;
+
         if (jumpBufferCounter > 0) jumpBufferCounter -= Time.deltaTime;
 
-        if (jumpBufferCounter > 0)
+        if (jumpBufferCounter > 0 && hangCounter >0 )
         {
             rigid2D.velocity = new Vector2(rigid2D.velocity.x, jumpForce);
             jumpBufferCounter = 0;
+            hangCounter = 0;
         }
     }
+
+
 }

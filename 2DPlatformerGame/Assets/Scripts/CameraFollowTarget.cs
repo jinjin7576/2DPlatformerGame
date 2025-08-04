@@ -27,6 +27,7 @@ public class CameraFollowTarget : MonoBehaviour
                                           z ? target.position.z : transform.position.z);
         //이동 범위 제한
         Vector3 position = transform.position;
+        position.y += offsetY;
         position.x = Mathf.Clamp(transform.position.x, stageData.CameraLimitMinX, stageData.CameraLimitMaxX);
         transform.position = position;
     }

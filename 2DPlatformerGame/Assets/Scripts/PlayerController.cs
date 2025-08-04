@@ -6,6 +6,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
+    StageData stageData;
+
+    [SerializeField]
     KeyCode jumpKeyCode = KeyCode.C;
     MovementRigidbody2D movement;
     PlayerAnimator playerAnimator;
@@ -47,5 +50,9 @@ public class PlayerController : MonoBehaviour
     private void UpdateMove(float x)
     {
         movement.MoveTo(x);
+        float xPosition = Mathf.Clamp(transform.position.x, stageData.PlayerLimitMinX, stageData.PlayerLimITMaxX);
+        transform.position = new Vector2(xPosition, transform.position.y);
+
+
     }
 }

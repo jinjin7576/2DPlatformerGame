@@ -29,6 +29,19 @@ public class PlayerController : MonoBehaviour
         UpdateMove(x);
         UpdateJump();
         playerAnimator.UpdateAnimation(x);
+        UpdateAboveCollision();
+    }
+
+    private void UpdateAboveCollision()
+    {
+        if (movement.Velocity.y >= 0 && movement.HitAboveObject != null)
+        {
+            movement.RestVelocityY();
+            if (movement.HitAboveObject.TryGetComponent<TileBase>(out var tile) && !tile.IsHit)
+            {
+                tile.UpdateCollision();
+            }
+        }
     }
 
     private void UpdateJump()

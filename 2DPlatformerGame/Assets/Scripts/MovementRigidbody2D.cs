@@ -7,7 +7,9 @@ public class MovementRigidbody2D : MonoBehaviour
 {
     [Header("LayerMask")]
     [SerializeField]
-    private LayerMask groundCheckLayer;
+    private LayerMask groundCheckLayer; //바닥 체크
+    [SerializeField]
+    private LayerMask aboveCollisionLayer; //머리에 충돌
 
     [Header("Move")]
     [SerializeField]
@@ -34,12 +36,13 @@ public class MovementRigidbody2D : MonoBehaviour
 
     Vector2 collisionSize;
     Vector2 footPostion;
+    Vector2 headPosition;
 
     Rigidbody2D rigid2D;
     Collider2D collider2D;
 
     public Vector3 Velocity => rigid2D.velocity;
-
+    public Collider2D HitAboveObject { private set; get; } //머리에 충돌한 오브젝트 정보
     public bool IsLongJump { get; set; } = false;
     public bool IsGrounded {  get; private set; } = false;
 
@@ -76,8 +79,10 @@ public class MovementRigidbody2D : MonoBehaviour
     {
         Bounds bounds = collider2D.bounds;
         collisionSize = new Vector2((bounds.max.x - bounds.min.x) * 0.5f, 0.1f); //플레이어 발에 생성하는 충돌 범위
-        footPostion = new Vector2(bounds.center.x, bounds.min.y);
+        footPostion = new Vector2(bounds.center.x, bounds.min.y); //발 위치
+        headPosition = new Vector2(bounds.center.x, bounds.max.y);//머리 위치
         IsGrounded = Physics2D.OverlapBox(footPostion, collisionSize, 0, groundCheckLayer); //충돌되어있으면 체크
+        HitAboveObject = Physics2D.OverlapBox(headPosition, collisionSize, 0, aboveCollisionLayer); //머리와 충돌한충돌체 정보 저장
     }
 
     private void JumpHeight()
@@ -116,6 +121,10 @@ public class MovementRigidbody2D : MonoBehaviour
             hangCounter = 0;
         }
     }
-
+    public void RestVelocityY()
+    {
+        rigid2D.velocity = new Vector2(rigid2D.velocity.x, 0);
+    }
+    
 
 }

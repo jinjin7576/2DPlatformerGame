@@ -30,6 +30,18 @@ public class PlayerController : MonoBehaviour
         UpdateJump();
         playerAnimator.UpdateAnimation(x);
         UpdateAboveCollision();
+        UpdateBelowCollision();
+    }
+
+    private void UpdateBelowCollision()
+    {
+        if (movement.HitBelowObject != null)
+        {
+            if (movement.HitBelowObject.TryGetComponent<PlatformBase>(out var platform))
+            {
+                platform.UpdateCollision(gameObject);
+            }
+        }
     }
 
     private void UpdateAboveCollision()

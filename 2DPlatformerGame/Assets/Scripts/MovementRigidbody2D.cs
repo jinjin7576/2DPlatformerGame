@@ -131,6 +131,9 @@ public class MovementRigidbody2D : MonoBehaviour
     {
         rigid2D.velocity = new Vector2(rigid2D.velocity.x, 0);
     }
-    
 
+    public void JumpTo(float force)
+    {
+        rigid2D.velocity = new Vector2(rigid2D.velocity.x, force);
+    }
 }

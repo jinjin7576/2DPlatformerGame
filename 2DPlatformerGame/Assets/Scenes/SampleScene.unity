@@ -5398,6 +5398,9 @@ MonoBehaviour:
   aboveCollisionLayer:
     serializedVersion: 2
     m_Bits: 1024
+  belowCollisionLayer:
+    serializedVersion: 2
+    m_Bits: 2048
   walkSpeed: 5
   runSpeed: 8
   jumpForce: 13
@@ -10726,6 +10729,18 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 2939476288418467428, guid: b611333fb2a5d4f419dd332e08d60089, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3093864979560711818, guid: b611333fb2a5d4f419dd332e08d60089, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3455460136431575928, guid: b611333fb2a5d4f419dd332e08d60089, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3755948469778950477, guid: b611333fb2a5d4f419dd332e08d60089, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -10778,6 +10793,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 4965808354569653003, guid: b611333fb2a5d4f419dd332e08d60089, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5636472955748898115, guid: b611333fb2a5d4f419dd332e08d60089, type: 3}
       propertyPath: m_Layer
       value: 11
@@ -10786,9 +10805,21 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 6674368125441158916, guid: b611333fb2a5d4f419dd332e08d60089, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6902837370550369625, guid: b611333fb2a5d4f419dd332e08d60089, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7639707831256934364, guid: b611333fb2a5d4f419dd332e08d60089, type: 3}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7927195859165609240, guid: b611333fb2a5d4f419dd332e08d60089, type: 3}
+      propertyPath: m_BodyType
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7963947572726345903, guid: b611333fb2a5d4f419dd332e08d60089, type: 3}

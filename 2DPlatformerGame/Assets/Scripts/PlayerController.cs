@@ -78,6 +78,6 @@ public class PlayerController : MonoBehaviour
         float xPosition = Mathf.Clamp(transform.position.x, stageData.PlayerLimitMinX, stageData.PlayerLimITMaxX);
         transform.position = new Vector2(xPosition, transform.position.y);
 
-
     }
+    
 }

@@ -26,6 +26,22 @@ public class TileItem : TileBase
 
     private void SpawnItem()
     {
-        
+        if (ItemType == ItemType.Random)
+        {
+            ItemType = (ItemType)UnityEngine.Random.Range(0, itemPrefabs.Length);
+        }
+
+        Instantiate(itemPrefabs[(int)ItemType], transform.position, Quaternion.identity);
+
+        if (ItemType == ItemType.Coin)
+        {
+            cointCount--;
+        }
+
+        if (ItemType != ItemType.Coin || (ItemType == ItemType.Coin && cointCount == 0))
+        {
+            GetComponent<SpriteRenderer>().sprite = nonBrokeImage;
+            isEmpty = true;
+        }
     }
 }

@@ -16,7 +16,6 @@ public class TileBase : MonoBehaviour
     }
     public virtual void UpdateCollision()
     {
-        //Debug.Log($"{ gameObject.name} 타일 충돌");
         if (canBounce == true)
         {
             IsHit = true;

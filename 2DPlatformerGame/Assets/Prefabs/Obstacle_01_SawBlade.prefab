@@ -156,6 +156,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7252780745403130352}
   - component: {fileID: 5522151906528292630}
+  - component: {fileID: 5510713381124260392}
+  - component: {fileID: 4618474347178670840}
+  - component: {fileID: 2964469485668650979}
   m_Layer: 0
   m_Name: Obstacle_01_SawBlade
   m_TagString: Untagged
@@ -202,6 +205,52 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5510713381124260392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8364903527010157171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2dd8bf0843ef7442815b30a342f1c35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInstatDeath: 1
+--- !u!114 &4618474347178670840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8364903527010157171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 155ef9336c2de554ca64e4737f79df6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 4198550044911394268}
+  axis: {x: 0, y: 0, z: 1}
+  rotateSpeed: 200
+--- !u!114 &2964469485668650979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8364903527010157171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60472efb4dee6ad42bb564aaf2da15cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 4198550044911394268}
+  wayPoints:
+  - {fileID: 7576243960665197907}
+  - {fileID: 8376269345164654614}
+  waitTime: 0.5
+  timeOffset: 0.5
 --- !u!1 &9188100160827341875
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,6 +261,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4198550044911394268}
   - component: {fileID: 3769292445818238492}
+  - component: {fileID: 1447754570195259747}
   m_Layer: 0
   m_Name: SawBlade
   m_TagString: Untagged
@@ -287,3 +337,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &1447754570195259747
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9188100160827341875}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.45

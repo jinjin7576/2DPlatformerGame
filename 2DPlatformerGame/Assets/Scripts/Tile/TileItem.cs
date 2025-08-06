@@ -31,7 +31,8 @@ public class TileItem : TileBase
             ItemType = (ItemType)UnityEngine.Random.Range(0, itemPrefabs.Length);
         }
 
-        Instantiate(itemPrefabs[(int)ItemType], transform.position, Quaternion.identity);
+        GameObject item = Instantiate(itemPrefabs[(int)ItemType], transform.position, Quaternion.identity);
+        item.GetComponent<ItemBase>().Setup();
 
         if (ItemType == ItemType.Coin)
         {

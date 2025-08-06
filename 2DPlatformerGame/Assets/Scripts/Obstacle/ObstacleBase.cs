@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObstacleBase : MonoBehaviour
 {
     [SerializeField]
-    private bool isInstatDeath = true;
+    private bool isInstatDeath;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -17,7 +17,8 @@ public class ObstacleBase : MonoBehaviour
         }
         else
         {
-            Debug.Log("플레이어 체력 감소");
+            //Debug.Log("플레이어 체력 감소");
+            collision.GetComponent<PlayerHP>().DecreaseHP();
         }
     }
 }

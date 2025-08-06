@@ -10,12 +10,20 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     KeyCode jumpKeyCode = KeyCode.C;
+    [SerializeField]
+    KeyCode fireKeyCode = KeyCode.Z;
     MovementRigidbody2D movement;
     PlayerAnimator playerAnimator;
+    PlayerWeapon weapon;
+    PlayerData playerData;
+
+    private int lastDirectionX = 1; 
     void Awake()
     {
         movement = GetComponent<MovementRigidbody2D>();
         playerAnimator = GetComponentInChildren<PlayerAnimator>();
+        weapon = GetComponent<PlayerWeapon>();
+        playerData = GetComponent<PlayerData>();
     }
 
 
@@ -23,11 +31,12 @@ public class PlayerController : MonoBehaviour
     {
         float x = Input.GetAxisRaw("Horizontal");
         float offset = 0.5f + Input.GetAxisRaw("Sprint") * 0.5f;
-
+        if (x != 0) lastDirectionX = (int) x;
         x *= offset;
 
         UpdateMove(x);
         UpdateJump();
+        UpdateRangeFire();
         playerAnimator.UpdateAnimation(x);
         UpdateAboveCollision();
         UpdateBelowCollision();
@@ -84,4 +93,12 @@ public class PlayerController : MonoBehaviour
 
     }
     
+    private void UpdateRangeFire()
+    {
+        if (Input.GetKeyDown(fireKeyCode) && playerData.CurrentProjectile > 0)
+        {
+            playerData.CurrentProjectile--;
+            weapon.StartFire(lastDirectionX);
+        }
+    }
 }

@@ -6,6 +6,9 @@ using UnityEngine;
 public class PlayerHP : MonoBehaviour
 {
     [SerializeField]
+    private UIPlayerData uiPlayerData;
+
+    [SerializeField]
     private int max = 3;
     [SerializeField]
     private int current;
@@ -32,6 +35,7 @@ public class PlayerHP : MonoBehaviour
         if (current > 1)
         {
             current--;
+            uiPlayerData.SetHp(current, false);
         }
         else
         {
@@ -42,6 +46,7 @@ public class PlayerHP : MonoBehaviour
     {
         if (current < max)
         {
+            uiPlayerData.SetHp(current, true);
             current++;
         }
     }

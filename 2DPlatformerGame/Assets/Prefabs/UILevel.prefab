@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1748357667310672691}
   - component: {fileID: 1748357667310672689}
   - component: {fileID: 1748357667310672690}
+  - component: {fileID: 1492979835127474758}
   m_Layer: 5
   m_Name: UILevel
   m_TagString: Untagged
@@ -77,6 +78,26 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1492979835127474758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1748357667310672844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ee2aaa22ec5e314fab68074fdaf9124, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteLevelLock: {fileID: 21300000, guid: 60782db202902bc4781c80ee39bc391d, type: 3}
+  imageLevelIcon: {fileID: 1748357667310672690}
+  textLevel: {fileID: 1748357668220307507}
+  starBackgroundObject: {fileID: 1748357667624768753}
+  starObjects:
+  - {fileID: 1748357667594866420}
+  - {fileID: 1748357668770818979}
+  - {fileID: 1748357669369728091}
 --- !u!1 &1748357667594866420
 GameObject:
   m_ObjectHideFlags: 0

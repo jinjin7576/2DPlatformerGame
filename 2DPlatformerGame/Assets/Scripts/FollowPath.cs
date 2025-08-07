@@ -1,7 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum FollowPath_State
+{
+    Idle = 0,
+    Move,
+}
 public class FollowPath : MonoBehaviour
 {
     [SerializeField]
@@ -18,6 +24,11 @@ public class FollowPath : MonoBehaviour
 
     private int wayPointCount;
     private int currentIndex = 0;
+
+    private int direction;
+    public int Direction => direction;
+
+    public FollowPath_State State {private set; get;} = FollowPath_State.Idle;
 
     private void Awake()
     {
@@ -45,11 +56,25 @@ public class FollowPath : MonoBehaviour
     {
         float percent = 0;
         float moveTime = Vector3.Distance(a, b) * timeOffset;
+
+        SetDirection(a.x, b.x);
+        State = FollowPath_State.Idle;
+
         while (percent < 1)
         {
             percent += Time.deltaTime / moveTime;
             target.position = Vector3.Lerp(a, b, percent);
             yield return null;
         }
+    }
+
+    private void SetDirection(float start, float end)
+    {
+        if (end - start != 0) direction = (int)Mathf.Sign(end - start);
+        else direction = 0;
+    }
+    public void Stop()
+    {
+        StopAllCoroutines();
     }
 }

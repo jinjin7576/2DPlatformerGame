@@ -71,6 +71,7 @@ public class EnemyFrog : EnemyBase
 
                 yield break;
             }
+            yield return null;
         }
     }
 

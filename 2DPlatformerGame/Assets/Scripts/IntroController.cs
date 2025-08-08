@@ -34,6 +34,6 @@ public class IntroController : MonoBehaviour
 
     private void AfterFadeEffect()
     {
-        Utils.LoadScene(SceneName.SelectLevle);
+        Utils.LoadScene(SceneName.SelectLevel);
     }
 }

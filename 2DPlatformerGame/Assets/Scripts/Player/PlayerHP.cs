@@ -60,6 +60,7 @@ public class PlayerHP : MonoBehaviour
         else
         {
             invincibilityTime = time;
+
             StartCoroutine(nameof(Invincibility));
         }
     }
@@ -69,8 +70,9 @@ public class PlayerHP : MonoBehaviour
         isInvincibility = true;
 
         float blinkSpeed = 10;
-        while ( invincibilityTime > 0)
+        while ( invincibilityTime >= 0)
         {
+            invincibilityTime -= Time.deltaTime;
             Color color = SpriteRenderer.color;
             color.a = Mathf.SmoothStep(0, 1, Mathf.PingPong(Time.time * blinkSpeed, 1));
             SpriteRenderer.color = color;

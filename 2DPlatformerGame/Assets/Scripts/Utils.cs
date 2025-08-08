@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum SceneName { Intro = 0 , SelectLevle, Game }
+public enum SceneName { Intro = 0 , SelectLevel, Game }
 public class Utils
 {
     public static string GetActiveScene()

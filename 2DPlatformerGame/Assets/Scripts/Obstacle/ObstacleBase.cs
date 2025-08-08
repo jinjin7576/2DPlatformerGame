@@ -13,7 +13,7 @@ public class ObstacleBase : MonoBehaviour
 
         if (isInstatDeath)
         {
-            Debug.Log("플레이어 사망");
+            collision.GetComponent<PlayerController>().OnDie();
         }
         else
         {

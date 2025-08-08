@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,5 +31,11 @@ public class CameraFollowTarget : MonoBehaviour
         position.y += offsetY;
         position.x = Mathf.Clamp(transform.position.x, stageData.CameraLimitMinX, stageData.CameraLimitMaxX);
         transform.position = position;
+    }
+
+    internal void SetUp(StageData stageData)
+    {
+        this.stageData = stageData;
+        transform.position = new Vector3(stageData.CameraPosition.x, stageData.CameraPosition.y, -10);
     }
 }

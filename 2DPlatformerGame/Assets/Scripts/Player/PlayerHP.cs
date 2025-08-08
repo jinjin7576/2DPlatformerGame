@@ -14,6 +14,7 @@ public class PlayerHP : MonoBehaviour
     private int current;
 
     private SpriteRenderer SpriteRenderer;
+    private PlayerController playerController;
     private Color originColor;
 
     [SerializeField]
@@ -23,6 +24,7 @@ public class PlayerHP : MonoBehaviour
     {
         current = max;
         SpriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        playerController = GetComponent<PlayerController>();
         originColor = SpriteRenderer.color;
     }
 
@@ -39,7 +41,7 @@ public class PlayerHP : MonoBehaviour
         }
         else
         {
-            Debug.Log("플레이어 사망");
+            playerController.OnDie();
         }
     }
     public void IncreaseHP()

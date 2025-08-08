@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField]
     StageData stageData;
+
+    [SerializeField]
+    private GameController gameController;
 
     [SerializeField]
     KeyCode jumpKeyCode = KeyCode.C;
@@ -40,6 +42,20 @@ public class PlayerController : MonoBehaviour
         playerAnimator.UpdateAnimation(x);
         UpdateAboveCollision();
         UpdateBelowCollision();
+        isUnderGround();
+    }
+
+    private void isUnderGround()
+    {
+        if (transform.position.y < stageData.MapLimitMinY)
+        {
+            OnDie();
+        }
+    }
+
+    public void OnDie()
+    {
+        gameController.LevelFailed();
     }
 
     private void UpdateBelowCollision()
@@ -101,4 +117,14 @@ public class PlayerController : MonoBehaviour
             weapon.StartFire(lastDirectionX);
         }
     }
+    public void LevelComplete()
+    {
+        gameController.LevelComplete();
+    }
+    public void SetUp(StageData stageData)
+    {
+        this.stageData = stageData;
+        transform.position = this.stageData.PlayerPosition;
+    }
+
 }

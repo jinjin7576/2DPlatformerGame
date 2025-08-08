@@ -8,6 +8,7 @@ public class ItemStar : ItemBase
     [SerializeField]
     [Range(0, 2)]
     private int starIndex;
+    public int StarIndex => starIndex;
     public override void UpdateCollison(Transform target)
     {
         target.GetComponent<PlayerData>().GetStar(starIndex);

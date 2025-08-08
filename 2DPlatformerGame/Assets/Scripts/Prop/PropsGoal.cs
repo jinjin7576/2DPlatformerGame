@@ -9,7 +9,7 @@ public class PropsGoal : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Game Clear");
+            collision.GetComponent<PlayerController>().LevelComplete();
         }
     }
 }
